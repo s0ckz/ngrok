@@ -83,6 +83,12 @@ Windows	C:\Users\example\.ngrok2\ngrok.yml
 ## inspector
 When tunnel is established you can use the ngrok interface http://127.0.0.1:4040 to inspect the webhooks done via ngrok.
 
+## process
+To get a handle to the spawned ngrok process use
+```javascript
+ngrok.process(); // returns ChildProcess
+```
+
 ## how it works
 npm install downloads ngrok binaries for you platform and puts them into bin folder. You can host binaries yourself and set NGROK_CDN_URL env var before installing ngrok.
 
