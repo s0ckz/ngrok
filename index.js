@@ -217,6 +217,7 @@ function kill(cb) {
 		return cb();
 	}
 	ngrok.on('exit', function() {
+		ngrok = null;
 		api = null;
 		tunnels = {};
 		emitter.emit('disconnect');
