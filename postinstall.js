@@ -6,15 +6,15 @@ var request = require('request');
 
 var cdn = process.env.NGROK_CDN_URL || 'https://bin.equinox.io';
 var bins = {
-	darwinia32:	cdn + '/a/hU5xF8ZzQgp/ngrok-2.1.1-darwin-386.zip',
-	darwinx64:	cdn + '/a/bZszyrZZM3G/ngrok-2.1.1-darwin-amd64.zip',
-	linuxarm:	cdn + '/a/e7Ywipw6GyW/ngrok-2.1.1-linux-arm.tar.gz',
-	linuxia32:	cdn + '/a/4vkGbFY6yNM/ngrok-2.1.1-linux-386.tar.gz',
-	linuxx64:	cdn + '/a/b87faFPKrii/ngrok-2.1.1-linux-amd64.tar.gz',
-	win32ia32:	cdn + '/a/54cQjE1obr2/ngrok-2.1.1-windows-386.zip',
-	win32x64:	cdn + '/a/chRZWPptE7w/ngrok-2.1.1-windows-amd64.zip',
-	freebsdia32:	cdn + '/a/jUNkpcemJAZ/ngrok-2.1.1-freebsd-386.tar.gz',
-	freebsdx64:	cdn + '/a/kPYrp5NGZsQ/ngrok-2.1.1-freebsd-amd64.tar.gz'
+	darwinia32:	cdn + '/c/6raCnPaTf2c/ngrok-beta-darwin-386.zip',
+	darwinx64:	cdn + '/c/6raCnPaTf2c/ngrok-beta-darwin-amd64.zip',
+	linuxarm:	cdn + '/c/6raCnPaTf2c/ngrok-beta-linux-arm.tgz',
+	linuxia32:	cdn + '/c/6raCnPaTf2c/ngrok-beta-linux-386.tgz',
+	linuxx64:	cdn + '/c/6raCnPaTf2c/ngrok-beta-linux-amd64.tgz',
+	win32ia32:	cdn + '/c/6raCnPaTf2c/ngrok-beta-windows-386.zip',
+	win32x64:	cdn + '/c/6raCnPaTf2c/ngrok-beta-windows-amd64.zip',
+	freebsdia32:	cdn + '/c/6raCnPaTf2c/ngrok-beta-freebsd-386.tgz',
+	freebsdx64:	cdn + '/c/6raCnPaTf2c/ngrok-beta-freebsd-amd64.tgz'
 };
 
 var arch = os.platform() + os.arch();
