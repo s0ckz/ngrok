@@ -85,7 +85,7 @@ function runNgrok(opts, cb) {
 
 	ngrok = spawn(
 			bin,
-			['start', '--none', '--log=stdout', '--region=' + opts.region],
+			['start', '--none', '--log=stdout', '--region=' + opts.region, '-config=~/.exponent/ngrok.yml'],
 			{cwd: __dirname + '/bin'});
 
 	ngrok.stdout.on('data', function (data) {
@@ -165,7 +165,7 @@ function authtoken(token, cb) {
 	cb = cb || noop;
 	var a = spawn(
 		bin,
-		['authtoken', token],
+		['authtoken', token, '-config=~/.exponent/ngrok.yml'],
 		{cwd: __dirname + '/bin'});
 	a.stdout.once('data', done.bind(null, null, token));
 	a.stderr.once('data', done.bind(null, new Error('cant set authtoken')));
