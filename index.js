@@ -43,9 +43,9 @@ function connect(opts, cb) {
 		}
 
 		opts.authtoken ?
-			authtoken(opts.authtoken, run) :
+			authtoken(opts.authtoken, opts.configPath, run) :
 			run(null);
-	});	
+	});
 }
 
 function defaults(opts) {
@@ -54,7 +54,7 @@ function defaults(opts) {
 	if (typeof opts === 'function') {
 		opts = {proto: 'http', addr: 80};
 	}
-	
+
 	if (typeof opts !== 'object') {
 		opts = {proto: 'http', addr: opts};
 	}
@@ -82,12 +82,12 @@ function runNgrok(opts, cb) {
 	if (api) {
 		return cb();
 	}
-	
+
 	ngrok = spawn(
 			bin,
-			['start', '--none', '--log=stdout', '--region=' + opts.region, '-config=~/.exponent/ngrok.yml'],
+			['start', '--none', '--log=stdout', '--region=' + opts.region, '-config=' + opts.configPath],
 			{cwd: __dirname + '/bin'});
-	
+
 	ngrok.stdout.on('data', function (data) {
 		var addr = data.toString().match(ready);
 		if (addr) {
@@ -156,14 +156,14 @@ function _runTunnel(opts, cb) {
 			});
 	};
 
-	retry();	
+	retry();
 }
 
-function authtoken(token, cb) {
+function authtoken(token, configPath, cb) {
 	cb = cb || noop;
 	var a = spawn(
 		bin,
-		['authtoken', token, '-config=~/.exponent/ngrok.yml'],
+		['authtoken', token, '-config=' + configPath],
 		{cwd: __dirname + '/bin'});
 	a.stdout.once('data', done.bind(null, null, token));
 	a.stderr.once('data', done.bind(null, new Error('cant set authtoken')));
