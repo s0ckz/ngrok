@@ -1,5 +1,5 @@
 {
-  "name": "ngrok",
+  "name": "@exponent/ngrok",
   "version": "2.2.1",
   "description": "node wrapper for ngrok",
   "main": "index.js",
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/bubenshchykov/ngrok.git"
+    "url": "git://github.com/exponent/ngrok.git"
   },
   "keywords": [
     "ngrok",
@@ -27,7 +27,7 @@
   "author": "bubenshchykov",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/bubenshchykov/ngrok/issues"
+    "url": "https://github.com/exponent/ngrok/issues"
   },
   "devDependencies": {
     "chai": "~1.8.1",
