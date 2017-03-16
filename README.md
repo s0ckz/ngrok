@@ -90,7 +90,7 @@ ngrok.process(); // returns ChildProcess
 ```
 
 ## how it works
-npm install downloads ngrok binaries for you platform and puts them into bin folder. You can host binaries yourself and set NGROK_CDN_URL env var before installing ngrok.
+npm install downloads ngrok binaries for you platform and puts them into bin folder. You can host binaries yourself and set NGROK_CDN_URL env var before installing ngrok. Or you can force specific arch by setting NGROK_ARCH, eg NGROK_ARCH=freebsdia32
 
 First time you create tunnel ngrok process is spawned and runs until you disconnect or when parent process killed. All further tunnels are created or stopped by using internal ngrok api which usually runs on http://127.0.0.1:4040
 
