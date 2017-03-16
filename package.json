@@ -1,6 +1,6 @@
 {
   "name": "@exponent/ngrok",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "node wrapper for ngrok",
   "main": "index.js",
   "scripts": {
