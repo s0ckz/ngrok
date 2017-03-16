@@ -1,5 +1,4 @@
 node_modules/
-bin/
-bin/**
 bin/ngrok
 *.log
+.DS_Store
