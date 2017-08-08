@@ -111,6 +111,10 @@ function runNgrok(opts, cb) {
 	process.on('exit', function() {
 		kill();
 	});
+
+	ngrok.on('error', function(err) {
+		cb(err);
+	});
 }
 
 function runTunnel(opts, cb) {
@@ -169,6 +173,9 @@ function authtoken(token, configPath, cb) {
 		{cwd: __dirname + '/bin'});
 	a.stdout.once('data', done.bind(null, null, token));
 	a.stderr.once('data', done.bind(null, new Error('cant set authtoken')));
+	a.on('error', function(err) {
+	  cb(err);
+	});
 
 	function done(err, token) {
 		cb(err, token);
