@@ -1,6 +1,8 @@
 var ngrok = require('..');
+var homedir = require('homedir');
 var http = require('http');
 var net = require('net');
+var path = require('path');
 var request = require('request');
 var URL = require('url');
 var uuid = require('uuid');
@@ -8,6 +10,7 @@ var util = require('./util');
 
 var port = 8080;
 var authtoken = process.env.NGROK_AUTHTOKEN_PAID;
+var configPath = path.join(homedir(), '/.ngrok2/ngrok.yml');
 var localUrl = 'http://127.0.0.1:' + port;
 var tunnelUrl, respBody;
 
@@ -15,7 +18,7 @@ describe('registered.paid.spec.js - setting paid authtoken', function() {
 
 	before(function(done) {
 		ngrok.kill(function() {
-			ngrok.authtoken(authtoken, done);
+			ngrok.authtoken(authtoken, configPath, done);
 		});
 	});
 
@@ -39,7 +42,7 @@ describe('registered.paid.spec.js - setting paid authtoken', function() {
 		});
 
 		describe('calling local server directly', function() {
-			
+
 			before(function(done) {
 				request.get(localUrl + '/local', function (err, resp, body) {
 					respBody = body;
@@ -105,7 +108,7 @@ describe('registered.paid.spec.js - setting paid authtoken', function() {
 
 			describe('connecting to ngrok with subdomain', function () {
 				var uniqDomain = 'koko-' + uuid.v4();
-				
+
 				before(function (done) {
 					ngrok.connect({
 						port: port,
@@ -178,7 +181,7 @@ describe('registered.paid.spec.js - setting paid authtoken', function() {
 			});
 
 			describe('connecting to ngrok with auth', function () {
-				
+
 				before(function (done) {
 					ngrok.connect({
 						port: port,
@@ -228,7 +231,7 @@ describe('registered.paid.spec.js - setting paid authtoken', function() {
 	});
 
 	describe('starting local tcp server', function () {
-			
+
 		var tcpServerPort;
 		before(function(done) {
 			var tcpServer = net.createServer(function(socket) {
@@ -263,7 +266,7 @@ describe('registered.paid.spec.js - setting paid authtoken', function() {
 			describe('calling local tcp server through ngrok', function() {
 				var socketData;
 				var socket;
-				
+
 				before(function (done) {
 					net.connect(+tunnelUrlParts.port, tunnelUrlParts.hostname)
 						.once('data', function(data) {

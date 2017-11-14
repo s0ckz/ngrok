@@ -75,6 +75,10 @@ function defaults(opts) {
 		opts.region = 'us';
 	}
 
+	if (!opts.configPath) {
+		opts.configPath = '~/.ngrok2/ngrok.yml';
+	}
+
 	return opts;
 }
 

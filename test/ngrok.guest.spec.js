@@ -35,7 +35,7 @@ describe('guest.spec.js - ensuring no authtoken set', function() {
 		});
 
 		describe('calling local server directly', function() {
-			
+
 			before(function(done) {
 				request.get(localUrl + '/local', function (err, resp, body) {
 					respBody = body;
@@ -130,15 +130,15 @@ describe('guest.spec.js - ensuring no authtoken set', function() {
 				});
 			});
 
-			describe('connecting to ngrok with subdomain', function () {
+			xdescribe('connecting to ngrok with subdomain', function () {
 				var uniqDomain = 'koko-' + uuid.v4();
 				var error;
-				
+
 				before(function (done) {
 					ngrok.connect({
 						port: port,
 						subdomain: uniqDomain
-					}, function(err){
+					}, function(err, t){
 						error = err;
 						done();
 					});
