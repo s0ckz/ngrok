@@ -189,7 +189,7 @@ describe('registered.free.spec.js - setting free authtoken', function() {
 				expect(tunnelUrlParts.port).to.be.ok;
 			});
 
-			describe('calling local tcp server through ngrok', function() {
+			xdescribe('calling local tcp server through ngrok', function() {
 				var socketData;
 				var socket;
 
