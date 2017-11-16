@@ -1,3 +1,7 @@
+var util = require('./util');
+
+util.removeAuthtoken();
+
 if (!process.env.NGROK_AUTHTOKEN_PAID || !process.env.NGROK_AUTHTOKEN_FREE) {
 	console.error('tests expect NGROK_AUTHTOKEN_FREE and NGROK_AUTHTOKEN_PAID in env vars, put yours!');
 	process.exit(1);

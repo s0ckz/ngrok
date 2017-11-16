@@ -6,9 +6,9 @@ var lock = require('lock')();
 var async = require('async');
 var uuid = require('uuid');
 var url = require('url');
+var logfmt = require('logfmt');
 
 var bin = './ngrok' + (platform === 'win32' ? '.exe' : '');
-var ready = /starting web service.*addr=(\d+\.\d+\.\d+\.\d+:\d+)/;
 
 var noop = function() {};
 var emitter = new Emitter().on('error', noop);
@@ -75,6 +75,10 @@ function defaults(opts) {
 		opts.region = 'us';
 	}
 
+	if (!opts.configPath) {
+		opts.configPath = '~/.ngrok2/ngrok.yml';
+	}
+
 	return opts;
 }
 
@@ -83,20 +87,30 @@ function runNgrok(opts, cb) {
 		return cb();
 	}
 
+	emitter.emit('statuschange', 'starting');
+
 	ngrok = spawn(
 			bin,
 			['start', '--none', '--log=stdout', '--region=' + opts.region, '-config=' + opts.configPath],
 			{cwd: __dirname + '/bin'});
 
-	ngrok.stdout.on('data', function (data) {
-		var addr = data.toString().match(ready);
-		if (addr) {
-			api = request.defaults({
-				baseUrl: 'http://' + addr[1],
-				json: true
-			});
-			cb();
-		}
+	ngrok.stdout.on('data', function (chunk) {
+		var lines = chunk.toString().split(/\r?\n/);
+		lines.forEach(function (line) {
+			if (!line) return;
+			var data = logfmt.parse(line);
+			if (data.obj === 'web' && data.msg === 'starting web service' && data.addr) {
+				api = request.defaults({
+					baseUrl: 'http://' + data.addr,
+					json: true
+				});
+				cb();
+			} else if (data.obj === 'csess' && data.msg === 'session closed, starting reconnect loop') {
+				emitter.emit('statuschange', 'reconnecting');
+			} else if (data.obj === 'csess' && data.msg === 'client session established') {
+				emitter.emit('statuschange', 'online');
+			}
+		});
 	});
 
 	ngrok.stderr.on('data', function (data) {

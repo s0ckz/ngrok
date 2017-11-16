@@ -1,4 +1,5 @@
 var ngrok = require('..');
+var sinon = require('sinon');
 var util = require('./util');
 
 describe('guest.eventemitter.spec.js - ensuring no authtoken set, using ngrok as event emitter', function ( ) {
@@ -12,6 +13,8 @@ describe('guest.eventemitter.spec.js - ensuring no authtoken set, using ngrok as
 
 	describe('connecting to ngrok', function ( ) {
 		var connected, tunnelUrl, webAddrUrl;
+		var handleStatusChange = sinon.spy();
+
 		before(function(done) {
 			ngrok.once('connect', function (url, uiUrl) {
 				connected = true;
@@ -19,6 +22,7 @@ describe('guest.eventemitter.spec.js - ensuring no authtoken set, using ngrok as
 				webAddrUrl = uiUrl;
 				done();
 			});
+			ngrok.on('statuschange', handleStatusChange);
 			ngrok.connect();
 		});
 
@@ -33,6 +37,12 @@ describe('guest.eventemitter.spec.js - ensuring no authtoken set, using ngrok as
 		it('should pass web ui url with a "connect" event', function ( ) {
 			expect(webAddrUrl).to.match(/^http:\/\/127\.0\.0\.1:4040$/);
 		});
+
+		it('should fire a "statuschange" event', function () {
+			expect(handleStatusChange.calledTwice).to.be.true;
+			expect(handleStatusChange.firstCall.args[0]).to.equal('starting');
+			expect(handleStatusChange.secondCall.args[0]).to.equal('online');
+		});
 	});
 
 	describe('disconnecting from ngrok', function ( ) {
@@ -41,7 +51,7 @@ describe('guest.eventemitter.spec.js - ensuring no authtoken set, using ngrok as
 			ngrok.once('disconnect', function ( ) {
 				disconnected = true;
 				done();
-			});	
+			});
 			ngrok.disconnect();
 		});
 		it('should fire "disconnect" event', function ( ) {
@@ -55,7 +65,7 @@ describe('guest.eventemitter.spec.js - ensuring no authtoken set, using ngrok as
 			ngrok.once('error', function ( err ) {
 				error = err;
 				done();
-			});	
+			});
 			ngrok.connect({proto: 'xxx'});
 		});
 
