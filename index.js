@@ -7,8 +7,7 @@ var async = require('async');
 var uuid = require('uuid');
 var url = require('url');
 var logfmt = require('logfmt');
-
-var bin = './ngrok' + (platform === 'win32' ? '.exe' : '');
+var bin = require('@expo/ngrok-bin');
 
 var noop = function() {};
 var emitter = new Emitter().on('error', noop);
@@ -90,9 +89,9 @@ function runNgrok(opts, cb) {
 	emitter.emit('statuschange', 'starting');
 
 	ngrok = spawn(
-			bin,
-			['start', '--none', '--log=stdout', '--region=' + opts.region, '-config=' + opts.configPath],
-			{cwd: __dirname + '/bin'});
+		bin,
+		['start', '--none', '--log=stdout', '--region=' + opts.region, '-config=' + opts.configPath]
+	);
 
 	ngrok.stdout.on('data', function (chunk) {
 		var lines = chunk.toString().split(/\r?\n/);
@@ -189,8 +188,8 @@ function authtoken(token, configPath, cb) {
 	cb = cb || noop;
 	var a = spawn(
 		bin,
-		['authtoken', token, '-config=' + configPath],
-		{cwd: __dirname + '/bin'});
+		['authtoken', token, '-config=' + configPath]
+	);
 	a.stdout.once('data', done.bind(null, null, token));
 	a.stderr.once('data', done.bind(null, new Error('cant set authtoken')));
 	a.on('error', function(err) {

@@ -2,6 +2,66 @@
 # yarn lockfile v1
 
 
+"@expo/ngrok-bin-darwin-ia32@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-darwin-ia32/-/ngrok-bin-darwin-ia32-2.2.8-beta.0.tgz#fa119282f70f51c81c6c21c041ee41b1280b6095"
+
+"@expo/ngrok-bin-darwin-x64@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-darwin-x64/-/ngrok-bin-darwin-x64-2.2.8-beta.0.tgz#d91b996319bf39c988a071ecdd9f24aa420873c8"
+
+"@expo/ngrok-bin-freebsd-ia32@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-freebsd-ia32/-/ngrok-bin-freebsd-ia32-2.2.8-beta.0.tgz#f80d2d84e1be4eeb07d5c2c31134652afe173944"
+
+"@expo/ngrok-bin-freebsd-x64@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-freebsd-x64/-/ngrok-bin-freebsd-x64-2.2.8-beta.0.tgz#11d02b1eb31591cdce61e11f3c3e074eb88e984d"
+
+"@expo/ngrok-bin-linux-arm64@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-linux-arm64/-/ngrok-bin-linux-arm64-2.2.8-beta.0.tgz#738adddb125234d9d6e16090c7a9fe880565f55c"
+
+"@expo/ngrok-bin-linux-arm@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-linux-arm/-/ngrok-bin-linux-arm-2.2.8-beta.0.tgz#52272c7a5c544742bec8c75f8f6ad4b11118ad6e"
+
+"@expo/ngrok-bin-linux-ia32@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-linux-ia32/-/ngrok-bin-linux-ia32-2.2.8-beta.0.tgz#53fa72cc1ce0bdebdddd26254207a6f71a0c3459"
+
+"@expo/ngrok-bin-linux-x64@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-linux-x64/-/ngrok-bin-linux-x64-2.2.8-beta.0.tgz#505e3f32196d501be7c702a2a0d560456e67308d"
+
+"@expo/ngrok-bin-sunos-x64@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-sunos-x64/-/ngrok-bin-sunos-x64-2.2.8-beta.0.tgz#78eb7cca5f758f8c20b1296d4cd01f21e9635d23"
+
+"@expo/ngrok-bin-win32-ia32@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-win32-ia32/-/ngrok-bin-win32-ia32-2.2.8-beta.0.tgz#51ae2e1fbef0b7e0d7c2903baf98a9ea274febc0"
+
+"@expo/ngrok-bin-win32-x64@2.2.8-beta.0":
+  version "2.2.8-beta.0"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin-win32-x64/-/ngrok-bin-win32-x64-2.2.8-beta.0.tgz#4ad2412d003f9dc847233af497d1bc55d35ce855"
+
+"@expo/ngrok-bin@2.2.8-beta.1":
+  version "2.2.8-beta.1"
+  resolved "https://registry.npmjs.org/@expo/ngrok-bin/-/ngrok-bin-2.2.8-beta.1.tgz#726efdc555d9a69f756711fb544a4a83b802224a"
+  optionalDependencies:
+    "@expo/ngrok-bin-darwin-ia32" "2.2.8-beta.0"
+    "@expo/ngrok-bin-darwin-x64" "2.2.8-beta.0"
+    "@expo/ngrok-bin-freebsd-ia32" "2.2.8-beta.0"
+    "@expo/ngrok-bin-freebsd-x64" "2.2.8-beta.0"
+    "@expo/ngrok-bin-linux-arm" "2.2.8-beta.0"
+    "@expo/ngrok-bin-linux-arm64" "2.2.8-beta.0"
+    "@expo/ngrok-bin-linux-ia32" "2.2.8-beta.0"
+    "@expo/ngrok-bin-linux-x64" "2.2.8-beta.0"
+    "@expo/ngrok-bin-sunos-x64" "2.2.8-beta.0"
+    "@expo/ngrok-bin-win32-ia32" "2.2.8-beta.0"
+    "@expo/ngrok-bin-win32-x64" "2.2.8-beta.0"
+
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
