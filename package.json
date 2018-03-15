@@ -1,14 +1,13 @@
 {
   "name": "@expo/ngrok",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "node wrapper for ngrok",
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/mocha/bin/_mocha"
   },
   "files": [
-    "index.js",
-    "bin"
+    "index.js"
   ],
   "repository": {
     "type": "git",
