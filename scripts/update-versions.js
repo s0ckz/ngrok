@@ -12,7 +12,7 @@ let ngrokVersion =
   execFileSync(ngrokBin, ["--version"])
     .toString()
     .trim()
-    .replace(/^ngrok version /, "") + "-beta.0";
+    .replace(/^ngrok version /, "");
 let platforms = fs
   .readFileSync("./scripts/platforms.txt", "utf8")
   .trim()
