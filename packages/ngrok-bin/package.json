@@ -1,7 +1,7 @@
 {
   "name": "@expo/ngrok-bin",
   "description": "ngrok binary package",
-  "version": "2.2.8-beta.2",
+  "version": "2.2.8-beta.3",
   "repository": "expo/ngrok",
   "bin": {
     "ngrok": "bin/ngrok.js"
