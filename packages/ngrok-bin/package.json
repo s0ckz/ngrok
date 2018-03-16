@@ -1,7 +1,7 @@
 {
   "name": "@expo/ngrok-bin",
   "description": "ngrok binary package",
-  "version": "2.2.8",
+  "version": "2.2.8-beta.2",
   "repository": "expo/ngrok",
   "bin": {
     "ngrok": "bin/ngrok.js"
@@ -16,7 +16,7 @@
     "@expo/ngrok-bin-linux-ia32": "2.2.8",
     "@expo/ngrok-bin-linux-x64": "2.2.8",
     "@expo/ngrok-bin-sunos-x64": "2.2.8",
-    "@expo/ngrok-bin-win32-ia32": "2.2.8",
-    "@expo/ngrok-bin-win32-x64": "2.2.8"
+    "@expo/ngrok-bin-win32-ia32": "2.2.8-beta.1",
+    "@expo/ngrok-bin-win32-x64": "2.2.8-beta.1"
   }
 }

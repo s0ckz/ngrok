@@ -12,9 +12,9 @@ do
   ngrok_platform=${ngrok_platform/x64/amd64}
   ngrok_platform=${ngrok_platform/sunos/solaris}
   ngrok_platform=${ngrok_platform/win32/windows}
-  filename="ngrok-stable-$ngrok_platform.tgz"
+  filename="ngrok-stable-$ngrok_platform.zip"
   curl -O https://bin.equinox.io/c/4VmDzA7iaHb/$filename
-  tar -xvzf $filename
+  unzip -o $filename
   rm $filename
   cd -
 done
