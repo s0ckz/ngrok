@@ -151,6 +151,9 @@ function _runTunnel(opts, cb) {
 	var retries = 100;
 	opts.name = String(opts.name || uuid.v4());
 	var retry = function() {
+		if (!api) {
+			return;
+		}
 		api.post(
 			{url: 'api/tunnels', json: opts},
 			function(err, resp, body) {
