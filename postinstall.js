@@ -6,6 +6,8 @@ var Zip = require('decompress-zip');
 var localPath = __dirname + '/bin/';
 var localFile = 'ngrok-stable-' + os.platform() + '-' + os.arch() + '.zip';
 
+console.log(localPath);
+
 if (!localFile) {
   console.error('ngrok - platform ' + arch + ' is not supported.');
   process.exit(1);
