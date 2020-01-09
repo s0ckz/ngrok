@@ -3,7 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var Zip = require('decompress-zip');
 
-var localPath = __dirname + '/bin/';
+var localPath = path.join(__dirname, 'bin');
 var localFile = 'ngrok-stable-' + os.platform() + '-' + os.arch() + '.zip';
 
 console.log(localPath);
