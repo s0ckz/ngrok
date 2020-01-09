@@ -6,8 +6,6 @@ var Zip = require('decompress-zip');
 var localPath = path.join(__dirname, 'bin');
 var localFile = 'ngrok-stable-' + os.platform() + '-' + os.arch() + '.zip';
 
-console.log(localPath);
-
 if (!localFile) {
   console.error('ngrok - platform ' + arch + ' is not supported.');
   process.exit(1);
@@ -21,10 +19,10 @@ new Zip(path.join(localPath, localFile)).extract({
 
     var suffix = os.platform() === 'win32' ? '.exe' : '';
     if (suffix === '.exe') {
-      fs.writeFileSync(localPath + 'ngrok.cmd', 'ngrok.exe');
+      fs.writeFileSync(path.join(localPath, 'ngrok.cmd'), 'ngrok.exe');
     }
 
-    var target = localPath + 'ngrok' + suffix;
+    var target = path.join(localPath, 'ngrok') + suffix;
     fs.chmodSync(target, 0755);
 
     if (!fs.existsSync(target) || fs.statSync(target).size <= 0) {
