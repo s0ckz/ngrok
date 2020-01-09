@@ -36,6 +36,6 @@ new Zip(path.join(localPath, localFile)).extract({
   });
 
 function error(e) {
-  console.error('ngrok - error unpacking binary', e);
+  console.error('ngrok - error unpacking binary at: ' + localPath, e);
   process.exit(1);
 }
